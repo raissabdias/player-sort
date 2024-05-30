@@ -20,9 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $player_levels = PlayerLevel::all();
-
-        return view('auth.register', ['player_levels' => $player_levels]);
+        return view('auth.register');
     }
 
     /**
@@ -35,15 +33,13 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'player_level_id' => ['required', 'integer'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()]
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'player_level_id' => $request->player_level_id
+            'password' => Hash::make($request->password)
         ]);
 
         event(new Registered($user));

@@ -28,18 +28,6 @@
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
         </div>
 
-        <div class="mt-4">
-            <x-input-label for="player_level_id" :value="__('Nível como Jogador')" />
-            <select class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" name="player_level_id">
-                @foreach ($player_levels as $player_level)
-                    <option value="{{ $player_level->id }}" @selected($player_level->id == $user->player_level_id)>
-                        {{ $player_level->name }}
-                    </option>
-                @endforeach
-            </select>
-            <x-input-error :messages="$errors->get('player_level_id')" class="mt-2" />
-        </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Salvar') }}</x-primary-button>
 

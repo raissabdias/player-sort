@@ -17,11 +17,8 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $player_levels = PlayerLevel::all();
-
         return view('profile.edit', [
-            'user' => $request->user(),
-            'player_levels' => $player_levels
+            'user' => $request->user()
         ]);
     }
 

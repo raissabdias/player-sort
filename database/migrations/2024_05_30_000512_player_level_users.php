@@ -17,12 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
         });
-
-        // Add level to users table
-        Schema::table('users', function($table) {
-            $table->unsignedBigInteger('player_level_id');
-            $table->foreign('player_level_id')->references('id')->on('player_levels')->onDelete('cascade');
-        });
     }
 
     /**
@@ -31,8 +25,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('player_levels');
-        Schema::table('users', function($table) {
-            $table->dropColumn(['player_level_id']);
-        });
     }
 };
