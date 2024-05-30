@@ -18,8 +18,9 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/">
-                    <img src="{{ asset('images/logo.png') }}" class="w-20 h-20 fill-current text-gray-500" />
+                    <img src="{{ asset('images/logo.png') }}" class="" />
                 </a>
+                <p class="font-semibold text-xl text-gray-800 leading-tight">Player Sort</p>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -28,7 +29,7 @@
             @if (!Request::is('register'))
                 <div class="w-full sm:max-w-md mt-6 mt-4 text-center">
                     <a href="{{ route('register') }}">
-                        {{ __('Don\'t have an account?') }} <b>{{ __('Sign up!') }}</b>
+                        {{ __('Não tem uma conta?') }} <b>{{ __('Cadastre-se!') }}</b>
                     </a>
                 </div>
             @endif

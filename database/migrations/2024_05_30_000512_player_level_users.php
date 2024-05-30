@@ -20,8 +20,8 @@ return new class extends Migration
 
         // Add level to users table
         Schema::table('users', function($table) {
-            $table->unsignedBigInteger('player_id');
-            $table->foreign('player_id')->references('id')->on('player_levels')->onDelete('cascade');
+            $table->unsignedBigInteger('player_level_id');
+            $table->foreign('player_level_id')->references('id')->on('player_levels')->onDelete('cascade');
         });
     }
 
@@ -32,7 +32,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('player_levels');
         Schema::table('users', function($table) {
-            $table->dropColumn(['player_id']);
+            $table->dropColumn(['player_level_id']);
         });
     }
 };
