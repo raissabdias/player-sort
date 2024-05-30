@@ -31,7 +31,6 @@
         <div class="mt-4">
             <x-input-label for="player_level_id" :value="__('Nível como Jogador')" />
             <select class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" name="player_level_id">
-                <option value="">Selecione</option>
                 @foreach ($player_levels as $player_level)
                     <option value="{{ $player_level->id }}" @selected($player_level->id == $user->player_level_id)>
                         {{ $player_level->name }}
