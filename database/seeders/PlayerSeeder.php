@@ -42,11 +42,14 @@ class PlayerSeeder extends Seeder
             'Estêvão Gustavo Gonçalves Serrano de Iglesias'
         ];
 
-        foreach ($names as $name) {
+        foreach ($names as $k => $name) {
+            # For every 7 players, 1 is a goalkeeper
+            $is_goalkeeper = ($k % 7 == 0) ? 1 : 0;
+
             DB::table('players')->insert([
                 'name' => $name,
                 'level_id' => rand(1, 5),
-                'is_goalkeeper' => rand(0, 1)
+                'is_goalkeeper' => $is_goalkeeper
             ]);
         }
     }

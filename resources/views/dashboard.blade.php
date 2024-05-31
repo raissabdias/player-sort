@@ -23,7 +23,7 @@
                                                     @foreach ($players as $player)
                                                         <li class="list-group-item">
                                                             <input class="form-check-input me-2 mb-1" type="checkbox" name="players" value="{{ $player->id }}" id="player{{ $player->id }}" checked>
-                                                            <label class="form-check-label" for="player{{ $player->id }}">{{ $player->name }}</label>
+                                                            <label class="form-check-label" for="player{{ $player->id }}">{{ $player->name }} @if ($player->is_goalkeeper) (Goleiro) @endif </label>
                                                         </li>
                                                     @endforeach
                                                 </ul>
