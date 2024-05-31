@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $players = Player::all();
+        $players = Player::all()->sortBy('name');
 
         return view('dashboard', ['players' => $players]);
     }
