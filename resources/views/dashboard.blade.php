@@ -14,6 +14,27 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title font-semibold text-xl">Novo sorteio</h5>
+                                    <hr>
+                                    <form class="row mt-3">
+                                        <div class="col-6">
+                                            Jogadores que confirmaram presença:
+                                            <ul class="list-group mt-2">
+                                                @foreach ($players as $player)
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input me-2 mb-1" type="checkbox" name="players" value="{{ $player->id }}" id="player{{ $player->id }}">
+                                                        <label class="form-check-label" for="player{{ $player->id }}">{{ $player->name }}</label>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <div class="form-group">
+                                                <label class="w-full" for="players_quantity">Quantidade de jogadores por time</label>
+                                                <input type="text" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-2" id="players_quantity" value="">
+                                            </div>
+                                            <button type="submit" class="btn btn-dark my-3">Sortear</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
