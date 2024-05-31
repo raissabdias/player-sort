@@ -17,15 +17,22 @@
                                     <hr>
                                     <form class="row mt-3">
                                         <div class="col-6">
-                                            Jogadores que confirmaram presença:
-                                            <ul class="list-group mt-2">
-                                                @foreach ($players as $player)
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input me-2 mb-1" type="checkbox" name="players" value="{{ $player->id }}" id="player{{ $player->id }}">
-                                                        <label class="form-check-label" for="player{{ $player->id }}">{{ $player->name }}</label>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                            @if (count($players) > 0)
+                                                Jogadores que confirmaram presença:
+                                                <ul class="list-group mt-2">
+                                                    @foreach ($players as $player)
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-2 mb-1" type="checkbox" name="players" value="{{ $player->id }}" id="player{{ $player->id }}" checked>
+                                                            <label class="form-check-label" for="player{{ $player->id }}">{{ $player->name }}</label>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                Não há jogadores para exibir. 
+                                                <a href="{{ route('player.create') }}">
+                                                    Clique aqui e cadastre!
+                                                </a>
+                                            @endif
                                         </div>
                                         <div class="col-6 text-center">
                                             <div class="form-group">
