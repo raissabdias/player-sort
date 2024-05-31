@@ -71,7 +71,7 @@ class DrawController extends Controller
 
         $teams = count($players) / $quantity;
 
-        if (round($teams) === $goalkeepers_quantity) {
+        if ((int) ceil($teams) === $goalkeepers_quantity) {
             return [
                 'valid' => true,
                 'error' => null
@@ -80,7 +80,7 @@ class DrawController extends Controller
 
         return [
             'valid' => false,
-            'error' => 'São necessários ' . round($teams) . ' goleiros para sortear os times.'
+            'error' => 'São necessários ' . ceil($teams) . ' goleiros para sortear os times.'
         ];
     }
 }
