@@ -19,6 +19,7 @@ class PlayerController extends Controller
         $players = DB::table('players')
             ->join('player_levels', 'players.level_id', '=', 'player_levels.id')
             ->select('players.id', 'players.name', 'player_levels.name as level', 'players.is_goalkeeper')
+            ->orderBy('players.id')
             ->get();
 
         return view('player.index', ['players' => $players]);

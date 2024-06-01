@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Sorteio') }}
         </h2>
     </x-slot>
 
@@ -20,7 +20,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title font-semibold text-xl">Novo sorteio</h5>
                                     <hr>
-                                    <form class="row mt-3" method="POST" action="{{ route('draw') }}">
+                                    <form class="row mt-3" method="POST" action="{{ route('draw.create') }}">
                                         @csrf
                                         <div class="col-12">
                                             @if (session('errors'))
