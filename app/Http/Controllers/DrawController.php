@@ -11,7 +11,35 @@ class DrawController extends Controller
 {
     public function index(Request $request)
     {
-        return view('draw.index');
+        $draws = DB::table('draws')
+            ->orderBy('draws.id', 'desc')
+            ->get()
+            ->toArray();
+
+
+        # Get teams
+        foreach ($draws as $key => $draw) {
+            $teams = DB::table('teams')
+                ->where('draw_id', '=', $draw->id)
+                ->get()
+                ->toArray();
+               
+            # Get players
+            foreach ($teams as $team) {
+                $players = DB::table('team_players')
+                    ->join('players', 'players.id', '=', 'team_players.player_id')
+                    ->join('player_levels', 'players.level_id', '=', 'player_levels.id')
+                    ->where('team_id', '=', $team->id)
+                    ->select('players.id', 'players.name', 'player_levels.name as level', 'players.is_goalkeeper')
+                    ->get()
+                    ->toArray();
+
+                $draws[$key]->teams[] = $players;
+            }
+
+        }
+
+        return view('draw.index', ['draws' => $draws]);
     }
 
     public function create(Request $request)
