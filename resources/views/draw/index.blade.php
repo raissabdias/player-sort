@@ -21,20 +21,24 @@
                     </div>
                     <div class="col-12 mt-3">
                         @foreach ($draws as $draw)
-                            <div class="card x-3">
+                            <div class="card my-4 p-4">
                                 <div class="row">
+                                    <div class="">
+                                        <h3 class="font-semibold text-xl text-gray-800 mb-2">Sorteio {{ $draw->id }}</h3> 
+                                        <hr>
+                                    </div>
                                     @foreach ($draw->teams as $key => $team)
-                                        <div class="col-4">
+                                        <div class="col-4 my-2">
                                             <b>Time {{ $key +1 }}</b>
                                             @foreach ($team as $player)
-                                                <p>- {{ $player->name }}</p>
+                                                <p>- {{ $player->name }} @if ($player->is_goalkeeper) (Goleiro) @endif</p>
                                             @endforeach
                                         </div>
                                     @endforeach
                                 </div>
                             </div>
                         @endforeach
-                        <div class="text-center">
+                        <div class="text-center mt-4">
                             <small>{{ count($draws) }} sorteio(s) gerado(s).</small>
                         </div>
                     </div>

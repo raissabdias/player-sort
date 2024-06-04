@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/', [DrawController::class, 'index'])->name('draw');
     Route::get('/draw/add', [DrawController::class, 'create'])->name('draw.create');
-    Route::post('/draw', [DrawController::class, 'create'])->name('draw.store');
+    Route::post('/draw', [DrawController::class, 'store'])->name('draw.store');
 });
 
 require __DIR__.'/auth.php';

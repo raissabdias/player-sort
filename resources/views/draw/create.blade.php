@@ -20,7 +20,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title font-semibold text-xl">Novo sorteio</h5>
                                     <hr>
-                                    <form class="row mt-3" method="POST" action="{{ route('draw') }}">
+                                    <form class="row mt-3" method="POST" action="{{ route('draw.store') }}">
                                         @csrf
                                         <div class="col-12">
                                             @if (session('errors'))

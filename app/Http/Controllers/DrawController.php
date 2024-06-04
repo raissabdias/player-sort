@@ -16,7 +16,6 @@ class DrawController extends Controller
             ->get()
             ->toArray();
 
-
         # Get teams
         foreach ($draws as $key => $draw) {
             $teams = DB::table('teams')
@@ -31,6 +30,7 @@ class DrawController extends Controller
                     ->join('player_levels', 'players.level_id', '=', 'player_levels.id')
                     ->where('team_id', '=', $team->id)
                     ->select('players.id', 'players.name', 'player_levels.name as level', 'players.is_goalkeeper')
+                    ->orderBy('players.is_goalkeeper', 'desc')
                     ->get()
                     ->toArray();
 
@@ -191,7 +191,8 @@ class DrawController extends Controller
     private function saveDraw($teams)
     {
         $draw_id = DB::table('draws')->insertGetId([
-            'players_per_team' => count($teams[0])
+            'players_per_team' => count($teams[0]),
+            'created_at' => date("Y-m-d H:i:s")
         ]);
 
         foreach ($teams as $team) {
