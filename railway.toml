@@ -1,7 +1,5 @@
 [build]
 builder = "NIXPACKS"
-
-[build]
 buildCommand = "php artisan serve"
 
 [deploy]
