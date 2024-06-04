@@ -18,6 +18,9 @@ class DrawController extends Controller
 
         # Get teams
         foreach ($draws as $key => $draw) {
+            # Format created_at
+            $draws[$key]->created_at = $draw->created_at ? date("d/m/y H:i", strtotime($draw->created_at)) : null;
+
             $teams = DB::table('teams')
                 ->where('draw_id', '=', $draw->id)
                 ->get()

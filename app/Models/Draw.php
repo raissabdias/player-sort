@@ -16,4 +16,13 @@ class Draw extends Model
      * @var array<int, string>
      */
     protected $fillable = [];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+      ];
 }
