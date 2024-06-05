@@ -1,6 +1,6 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "php artisan migrate && php artisan db:seed && php artisan serve"
+buildCommand = "npm run build"
 
 [deploy]
-startCommand = " --class=TruckSeeder"
+startCommand = "php artisan migrate && php artisan db:seed"
