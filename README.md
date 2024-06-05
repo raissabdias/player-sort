@@ -5,6 +5,10 @@
 <p align="center">
     <img alt="Badge = Laravel Version" src="https://img.shields.io/badge/laravel-v11.9.1-blue">
     <img alt="Badge = Release Date" src="https://img.shields.io/badge/release date-jun 24-yellow">
+    <img alt="Railway App" src="https://img.shields.io/badge/Railway-131415?style=for-the-badge&logo=railway&logoColor=white">
+</p>
+<p align="center">
+    Deploy feito no Railway App, <a href="https://player-sort-production.up.railway.app/">clique aqui</a> para visitar.
 </p>
 <p>
     Uma aplicação para realizar sorteios de time de futebol, a partir do cadastro de jogadores, definição de goleiros e confirmação de presença no sorteio. Desenvolvida com o próposito de testar conhecimentos.
