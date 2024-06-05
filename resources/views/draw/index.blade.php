@@ -19,6 +19,11 @@
                             {{ __('Adicionar sorteio') }}
                         <a>
                     </div>
+                    @if (session('success'))
+                        <div class="col-12 alert alert-success text-center mt-3" role="alert">
+                            Sorteio gerado com sucesso!
+                        </div>
+                    @endif
                     <div class="col-12 mt-3">
                         @foreach ($draws as $draw)
                             <div class="card my-4 p-4">

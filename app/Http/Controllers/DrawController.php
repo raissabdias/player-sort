@@ -81,7 +81,7 @@ class DrawController extends Controller
                 ->withInput($request->all());
         }
 
-        return Redirect::back()
+        return Redirect::to('/')
             ->with('success', true)
             ->with('draw_id', $draw_id);
     }
